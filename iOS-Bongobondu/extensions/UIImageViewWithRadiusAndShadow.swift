@@ -9,20 +9,20 @@
 import UIKit
 
 class UIImageViewWithRadiusAndShadow: UIImageView {
-        override init(frame: CGRect) {
+     override init(frame: CGRect) {
             super.init(frame: frame)
             setRadiusAndShawdow()
         }
-    
+        
         required init?(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
             setRadiusAndShawdow()
         }
-    
+        
         func setRadiusAndShawdow() {
             layer.cornerRadius = 10
-//            clipsToBounds = false
-            layer.masksToBounds = true
+            clipsToBounds = true
+            layer.masksToBounds = false
             layer.shadowRadius = 5
             layer.shadowOpacity = 0.5
             layer.shadowOffset = CGSize(width: 5, height: 5)
