@@ -14,10 +14,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        UserDefaults.standard.set("tanvir", forKey: "developer")
+//        UserDefaults.standard.set("tanvir", forKey: "developer")
         if UserDefaults.standard.string(forKey: "developer") == "tanvir" {
             let storyboard = UIStoryboard(name: "SecondMain", bundle: nil)
             let vc = storyboard.instantiateViewController(identifier: "secondView") as? SecondViewController
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+        }else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "main") as? ViewController
             window?.rootViewController = vc
             window?.makeKeyAndVisible()
         }
